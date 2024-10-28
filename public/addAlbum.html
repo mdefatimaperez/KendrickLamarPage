@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Album</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="site.js"></script> 
+
+</head>
+
+<body class="bg-black font-mono">
+  <!-----------------------------------------NAVBAR--------------------------------------->
+  <nav class="bg-black">
+
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+
+
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <!--LOGO GIT HUB-->
+          <div class="flex flex-shrink-0 items-center">
+            <a href="https://github.com/mdefatimaperez">
+              <img class="h-8 w-auto" src="img/git.png" alt="GitHub">
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile dropdown , PC -->
+        <div class="relative ml-3">
+          <!--USER ICON-->
+          <div>
+            <button type="button"
+              class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="absolute -inset-1.5"></span>
+              <img class="h-8 w-8 rounded-full" src="img/user-icon.png" alt="Open user menu">
+            </button>
+          </div>
+
+          <!-- USER MENU-->
+          <div id="user-menu"
+            class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-zinc-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+            <a href="#" class="block px-4 py-2 text-sm text-[#94a3b8] hover:text-yellow-300" role="menuitem"
+              tabindex="-1" id="user-menu-item-0">Mi Perfil</a>
+            <a href="#" class="block px-4 py-2 text-sm text-[#94a3b8] hover:text-yellow-300" role="menuitem"
+              tabindex="-1" id="user-menu-item-1">Configuracion</a>
+            <a href="login.html" class="block px-4 py-2 text-sm text-[#94a3b8] hover:text-yellow-300" role="menuitem"
+              tabindex="-1" id="user-menu-item-2">Cerrar Sesion</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+  <br>
+
+  <section class="max-w-4xl p-6 mx-auto rounded-md shadow-2xl shadow-yellow-500 mt-20">
+    <h1 class="text-2xl font-bold text-white capitalize dark:text-white">Agregar Album</h1>
+    
+    <form>
+      <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+       
+        <div>
+          <label class="text-white dark:text-gray-200" for="username">Nombre</label>
+          <input id="username" type="text"
+            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-500 focus:outline-none focus:ring">
+        </div>
+
+        <div>
+          <label class="text-white dark:text-gray-200">Autor/es</label>
+          <input id="Autor" type="text"
+            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-500 focus:outline-none focus:ring">
+        </div>
+        
+        <div>
+          <label class="text-white dark:text-gray-200" >Año Lanzamiento</label>
+          <input id="date" type="date"
+            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-500 focus:outline-none focus:ring">
+        </div>
+        
+        <div>
+          <label class="text-white dark:text-gray-200">Comentarios</label>
+          <textarea id="textarea" type="textarea"
+            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-500 focus:outline-none focus:ring"></textarea>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-medium text-white">
+            Imagen
+          </label>
+          
+          <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+            <div class="space-y-1 text-center">
+              <svg class="mx-auto h-12 w-12 text-white" stroke="currentColor" fill="none" viewBox="0 0 48 48"
+                aria-hidden="true">
+                <path
+                  d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+           
+              <div class="flex text-sm text-gray-600">
+                <label for="file-upload"
+                  class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                  <span class="">Upload a file</span>
+                  <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                </label>
+                <p class="pl-1 text-white">or drag and drop</p>
+              </div>
+              <p class="text-xs text-white">
+                PNG, JPG, GIF up to 10MB
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="flex justify-end mt-6">
+        <button
+          class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-yellow-600 rounded-md hover:bg-yellow-700 focus:outline-none focus:bg-gray-600">Guardar</button>
+      </div>
+    </form>
+
+  </section>
+<br>
+<br>
+<br>
+<div class="flex justify-around items-center mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex-col md:flex-row">
+<a href="index.html" class="mt-4 px-5 py-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300">Volver a inicio</a>
+</div>
+
+</body>
+
+</html>

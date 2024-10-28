@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kendrick Lamar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="site.js"></script>
+</head>
+
+<body class="bg-black font-mono">
+    <!-----------------------------------------NAVBAR--------------------------------------->
+    <nav class="bg-black">
+
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
+                    <!-- MOBIL MENU BOOTON-->
+                    <button type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        id="mobile-menu-button" aria-expanded="false">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Abrir menu</span>
+                        <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <!------------------------------------------------------------------------------------->
+
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <!--LOGO GIT HUB-->
+                    <div class="flex flex-shrink-0 items-center">
+                        <a href="https://github.com/mdefatimaperez">
+                            <img class="h-8 w-auto" src="img/git.png" alt="GitHub">
+                        </a>
+                    </div>
+                    <!--MENU OPCIONES , PC-->
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="index.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Biografia</a>
+                            <a href="allAlbums.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Albums</a>
+                            <a href="galeria.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Fotos</a>
+                            <a href="eventos.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Eventos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile dropdown , PC -->
+                <div class="relative ml-3">
+                    <!--USER ICON-->
+                    <div>
+                        <button type="button"
+                            class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                            <span class="absolute -inset-1.5"></span>
+                            <img class="h-8 w-8 rounded-full" src="img/user-icon.png" alt="Open user menu">
+                        </button>
+                    </div>
+
+                    <!-- USER MENU-->
+                    <div id="user-menu"
+                        class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-zinc-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--MOBILE NAV MENU-->
+        <div id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2 hidden" id="mobile-menu-content">
+                <a href="index.html" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+                    aria-current="page">Biografia</a>
+                <a href="allAlbums.html"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Albums</a>
+                <a href="galeria.html"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Fotos</a>
+                <a href="eventos.html"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Eventos</a>
+            </div>
+        </div>
+
+    </nav>
+
+    <!----------------------------------------FOTOS-------------------------------------->
+    <h1 id="fotos" class="text-[#94a3b8] mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-5xl mt-28">FOTOS</h1>
+    <div class="grid gap-4 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-5xl mt-6">
+        <div>
+            <img class="h-auto w-full max-w-full rounded-lg object-contain object-center md:h-[400px]"
+                src="img/foto3.webp" alt="" />
+        </div>
+        <div class="grid grid-cols-5 gap-4">
+            <div>
+                <img src="img/foto1.webp" class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
+                    alt="gallery-image" />
+            </div>
+            <div>
+                <img src="img/foto2.webp" class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
+                    alt="gallery-image" />
+            </div>
+            <div>
+                <img src="img/foto3.webp" class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
+                    alt="gallery-image" />
+            </div>
+            <div>
+                <img src="img/foto4.webp" class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
+                    alt="gallery-image" />
+            </div>
+            <div>
+                <img src="img/foto5.webp" class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
+                    alt="gallery-image" />
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center mt-8 ">
+        <a href="#"
+            class="mt-8 px-5 py-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300">Agregar
+            Foto</a>
+    </div>
+</body>
+
+</html>

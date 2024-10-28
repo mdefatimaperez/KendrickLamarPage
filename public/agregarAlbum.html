@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kendrick Lamar-Add Album</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="agregarAlbum.js"></script>
+  <script defer src="site.js"></script>
+</head>
+
+<body class="bg-black font-mono">
+
+  <nav class="bg-black">
+
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
+          <!-- MOBIL MENU BOOTON-->
+          <button type="button"
+            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            id="mobile-menu-button" aria-expanded="false">
+            <span class="absolute -inset-0.5"></span>
+            <span class="sr-only">Abrir menu</span>
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <!------------------------------------------------------------------------------------->
+
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <!--LOGO GIT HUB-->
+          <div class="flex flex-shrink-0 items-center">
+            <a href="https://github.com/mdefatimaperez">
+              <img class="h-8 w-auto" src="img/git.png" alt="GitHub">
+            </a>
+          </div>
+          <!--MENU OPCIONES , PC-->
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <a href="index.html"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Biografia</a>
+              <a href="allAlbums.html"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Albums</a>
+              <a href="galeria.html"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Fotos</a>
+              <a href="eventos.html"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Eventos</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile dropdown , PC -->
+        <div class="relative ml-3">
+          <!--USER ICON-->
+          <div>
+            <button type="button"
+              class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="absolute -inset-1.5"></span>
+              <img class="h-8 w-8 rounded-full" src="img/user-icon.png" alt="Open user menu">
+            </button>
+          </div>
+
+          <!-- USER MENU-->
+          <div id="user-menu"
+            class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-zinc-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--MOBILE NAV MENU-->
+    <div id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2 hidden" id="mobile-menu-content">
+        <a href="index.html" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+          aria-current="page">Biografia</a>
+        <a href="allAlbums.html"
+          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Albums</a>
+        <a href="galeria.html"
+          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Fotos</a>
+        <a href="eventos.html"
+          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Eventos</a>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <!--Agregar albums-->
+  <div class="container mx-auto mt-10">
+    <h1 class="text-3xl text-gray-200 font-bold mb-4">Agregar Álbumes</h1>
+
+    <div id="albumForm" class="mb-4">
+      <h2 class="text-2xl text-gray-200 mb-2">Nuevo Álbum</h2>
+      <form id="newAlbumForm" class="flex flex-col gap-2">
+        <!--titulo album-->
+        <div>
+          <label for="titulo" class="text-white dark:text-gray-200">Título:</label>
+          <input id="titulo" type="text" name="titulo"
+            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-500 focus:outline-none focus:ring">
+        </div>
+
+        <!--descripcion album-->
+        <div>
+          <label for="descripcion" class="text-white dark:text-gray-200">Descripcion</label>
+          <textarea id="descripcion" name="descripcion" required
+            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-500 focus:outline-none focus:ring"></textarea>
+        </div>
+
+        <!--año de lanzamiento-->
+        <div>
+          <label for="añoLanzamiento" class="text-white dark:text-gray-200">Año Lanzamiento</label>
+          <input type="number" id="añoLanzamiento" name="añoLanzamiento" required
+            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-500 focus:outline-none focus:ring">
+        </div>
+
+        <!--img album-->
+        <div>
+          <label for="portada" class="text-white dark:text-gray-200">Portada</label>
+          <input type="text" id="portada" name="portada" required
+            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-500 focus:outline-none focus:ring">
+        </div>
+
+        <button type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">Agregar
+          Álbum</button>
+      </form>
+    </div>
+
+    <div class="flex justify-between items-center border-transparent border-t-[50px] mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8 flex-col md:flex-row">
+    <div class="w-full">
+        <div class='flex bg-gray-800 shadow-md rounded-lg overflow-hidden mx-auto'>
+            <div class="flex flex-col w-full p-4">
+                <div id="albumList" class="mb-4">
+                    <h2 class="text-4xl font-bold mb-2 text-white">Lista de Álbumes</h2>
+                    <ul id="albumListItems" class="list-disc pl-5 text-white list-none">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="flex justify-around">
+      <div class="flex justify-around items-center mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex-col md:flex-row">
+        <a href="index.html"
+          class="mt-4 px-5 py-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300">Volver
+          a inicio</a>
+      </div>
+      <div class="flex justify-around items-center mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex-col md:flex-row">
+        <a href="allAlbums.html"
+          class="mt-4 px-5 py-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300">Volver a albums</a>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+
+</html>

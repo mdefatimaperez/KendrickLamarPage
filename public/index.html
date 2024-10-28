@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kendrick Lamar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="site.js"></script>
+</head>
+
+<body class="bg-black font-mono">
+    <!-----------------------------------------NAVBAR--------------------------------------->
+    <nav class="bg-black">
+
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
+                    <!-- MOBIL MENU BOOTON-->
+                    <button type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        id="mobile-menu-button" aria-expanded="false">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Abrir menu</span>
+                        <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <!------------------------------------------------------------------------------------->
+
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <!--LOGO GIT HUB-->
+                    <div class="flex flex-shrink-0 items-center">
+                        <a href="https://github.com/mdefatimaperez">
+                            <img class="h-8 w-auto" src="img/git.png" alt="GitHub">
+                        </a>
+                    </div>
+                    <!--MENU OPCIONES , PC-->
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="index.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Biografia</a>
+                            <a href="allAlbums.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Albums</a>
+                            <a href="galeria.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Fotos</a>
+                            <a href="eventos.html"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Eventos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile dropdown , PC -->
+                <div class="relative ml-3">
+                    <!--USER ICON-->
+                    <div>
+                        <button type="button"
+                            class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                            <span class="absolute -inset-1.5"></span>
+                            <img class="h-8 w-8 rounded-full" src="img/user-icon.png" alt="Open user menu">
+                        </button>
+                    </div>
+
+                    <!-- USER MENU-->
+                    <div id="user-menu"
+                        class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-zinc-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                       
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--MOBILE NAV MENU-->
+        <div id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2 hidden" id="mobile-menu-content">
+                <a href="index.html" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+                    aria-current="page">Biografia</a>
+                <a href="allAlbums.html"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Albums</a>
+                <a href="galeria.html"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Fotos</a>
+                <a href="eventos.html"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Eventos</a>
+            </div>
+        </div>
+
+    </nav>
+    <!-----------------------------------------BANER---------------------------------------->
+    <section>
+        <div class="bg-black text-white p-0"> <!---->
+            <div class="container mx-auto flex flex-col items-center justify-center md:flex-row my-12 md:my-24">
+                <div class="flex flex-col w-full lg:w-1/3 items-center justify-center items-end p-0">
+                    <h1 class="text-3xl md:text-5xl font-mono p-2 text-yellow-300 tracking-loose">Kendrick</h1>
+                    <h2 class="text-3xl md:text-5xl font-mono leading-relaxed md:leading-snug mb-2">Lamar
+                    </h2>
+                </div>
+                <div class="mt-12 mb-6 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3 flex flex-col justify-center">
+                    <div class="h-48 flex flex-wrap content-center">
+                        <div class="relative">
+                            <img class="inline-block rounded-full mt-28 hidden xl:block max-w-[220px]"
+                                src="img/kln1.webp">
+                        </div>
+                        <div class="relative"> <!--ESTA FOTO QUEDA EN MODO MOBIL-->
+                            <img class="inline-block rounded-full mt-24 md:mt-0  md:p-0 max-w-96 object-cover mb-7"
+                                src="img/kl.jpg">
+                        </div>
+                        <div class="relative">
+                            <img class="inline-block rounded-full mt-28 hidden lg:block max-w-[220px]"
+                                src="img/kln2.webp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <!-----------------------------------------BIOGRAFIA----------------------------------->
+    <h1 id="bio" class="text-[#94a3b8] mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-5xl mt-6">BIOGRAFIA</h1>
+    <div class="text-[#94a3b8] mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <br>
+        <div class="wiki-container flex flex-row-reverse">
+            <ul class="factbox text-sm">
+                <li class="factbox-item">
+                    <h4 class="factbox-heading text-yellow-300 text-base">Fecha de nacimiento</h4>
+                    <p>17 Junio 1987 (37 años)</p>
+                </li>
+                <li class="factbox-item">
+                    <h4 class="factbox-heading text-yellow-300 text-base">Lugar de nacimiento</h4>
+                    <p>Compton, Los Angeles County, California, Estados Unidos</p>
+                </li>
+            </ul>
+            <div class="wiki">
+                <div class="wiki-content text-xl">
+                    <p>Kendrick Lamar Duckworth (17 Junio, 1987), es un rapero y cantautor americano nacido en Compton,
+                        California perteneciente a la firma Aftermath Entertainment. Consiguió llamar la atención
+                        después del
+                        lanzamiento en 2010 de su mixtape Overly Dedicated. En 2011, su album Section.80, lanzado
+                        exclusivamente
+                        a través de iTunes, se clasificó al instante como uno de los top lanzamientos digitales del año.
+                        Lamar
+                        ha acumulado un gran número de seguidores en internet y actualmente es miembro del grupo de Hip
+                        Hop
+                        Black Hippy, junto con Jay Rock, Schoolboy Q y Ab-Soul, además de haber trabajado con raperos
+                        como Snoop
+                        Dogg, Dr. Dre, Wiz Khalifa, Game, Drake, Busta Rhymes y Tech N9ne entre otros artistas
+                        conocidos.<br></p>
+                    <h4>Vida Privada</h4>
+                    <p>En el instituto, Centennial en Compton, Lamar fue un buen estudiante. Lamar dijo que ha visto
+                        familiares
+                        que muriéndose en sus sueños durante años. Tupac Shakur es su rapero favorito, y no solo ha
+                        influido en
+                        su música, si no que también en su día a día. En términos musicales, Kendrick Lamar a menudo ha
+                        sido
+                        comparado con Tupac Shakur.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br> 
+</body>
+
+</html>
