@@ -5,6 +5,7 @@ let currentAlbumId = null; // Variable para almacenar el ID del álbum actual
 
 // Función para obtener las canciones de un álbum específico
 const getSongsForAlbum = async (albumId) => {
+  console.log(albumId)
   try {
     const response = await fetch(`/album/${albumId}/songs`);
     const songs = await response.json();
@@ -14,7 +15,7 @@ const getSongsForAlbum = async (albumId) => {
   }
 };
 
-//OBTENER TODOS LOS ALBUMS
+// OBTENER TODOS LOS ALBUMS
 const getAlbums = async () => {
   try {
     const response = await fetch("/album");
@@ -25,7 +26,7 @@ const getAlbums = async () => {
   }
 };
 
-//AGREGAR ALBUM
+// AGREGAR ALBUM
 const addAlbum = async (albumData) => {
   try {
     const response = await fetch("/album", {
@@ -46,26 +47,7 @@ const addAlbum = async (albumData) => {
   }
 };
 
-//AGREGAR CANCION AL ALBUM
-const addSongToAlbum = async (albumId, songData) => {
-  try {
-    const response = await fetch(`/album/${albumId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ canciones: songData }),
-    });
-    if (response.ok) {
-      getAlbums();
-    } else {
-      const error = await response.json();
-      alert("Error al agregar canción:", error.message);
-    }
-  } catch (error) {
-    console.error("Error adding song:", error);
-  }
-};
-
-//ELIMINAR ALBUM
+// ELIMINAR ALBUM
 const deleteAlbum = async (albumId) => {
   try {
     const response = await fetch(`/album/${albumId}`, {
@@ -83,7 +65,7 @@ const deleteAlbum = async (albumId) => {
   }
 };
 
-//MOSTRAR ALBUMS
+// MOSTRAR ALBUMS
 const displayAlbums = (albums) => {
   albumListItems.innerHTML = "";
   if (albums) {
@@ -107,7 +89,8 @@ const displayAlbums = (albums) => {
         <div class="flex justify-between p-2"> 
             <div class="flex gap-2">
                 <button data-album-id="${album._id}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="openSongForm(this)">Agregar Canción</button>
-                <button data-album-id="${album._id}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500">Eliminar Álbum</button>
+                <button data-album-id="${album._id}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500" onclick="deleteAlbum('${album._id}')">Eliminar Álbum</button>
+                <button data-album-id="${album._id}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500" onclick="openEditForm(this)"">Editar Álbum</button>
             </div>
             <div class="flex">
                 <img class="w-6 h-6 cursor-pointer" src="img/star.png" /> 
@@ -174,12 +157,165 @@ const displayAlbums = (albums) => {
           deleteAlbum(album._id);
         }
       });
+
+      // Agregar evento al botón "Modificar Álbum"
+      const editAlbumButton = albumItem.querySelector("button.bg-green-500");
+      editAlbumButton.addEventListener("click", () => {
+        openEditAlbumForm(editAlbumButton);
+      });
     });
   }
 };
 
+
+//EDIT ALBUM
+
+function openEditForm(button) {
+  const albumId = button.dataset.albumId;
+
+  // Obtener los datos del álbum
+  fetch(`/album/${albumId}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al obtener el álbum');
+      }
+      return response.json();
+    })
+    .then(album => {
+      // Crear el formulario pop-up
+      const popup = document.createElement('div');
+      popup.classList.add('fixed', 'inset-0', 'flex', 'items-center', 'justify-center', 'z-50', 'bg-black', 'bg-opacity-50');
+      popup.innerHTML = `
+        <div class="bg-white p-8 rounded-lg shadow-md w-1/3">
+          <h2 class="text-xl font-bold mb-4">Editar Álbum</h2>
+          <form id="editForm" class="flex flex-col gap-4">
+            <input type="hidden" id="albumId" value="${album._id}">
+            <div>
+              <label for="editTitle" class="block text-gray-700 text-sm font-bold mb-2">Título:</label>
+              <input type="text" id="editTitle" value="${album.titulo}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div>
+              <label for="editDescription" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
+              <textarea minlength="5" id="editDescription" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">${album.descripcion}</textarea>
+            </div>
+            <div>
+              <label for="editYear" class="block text-gray-700 text-sm font-bold mb-2">Año de Lanzamiento:</label>
+              <input type="number" id="editYear" value="${album.añoLanzamiento}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div>
+              <label for="editCover" class="block text-gray-700 text-sm font-bold mb-2">Portada:</label>
+              <input type="text" id="editCover" value="${album.portada}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="flex justify-end gap-4">
+              <button type="button" onclick="closeEditForm()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancelar</button>
+              <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
+      `;
+
+      // Agregar el formulario al DOM
+      document.body.appendChild(popup);
+
+      // Agregar evento de envío al formulario
+      const editForm = popup.querySelector("#editForm");
+      editForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        await updateAlbum(albumId, editForm);
+        closeEditForm();
+      });
+    })
+    .catch(error => {
+      console.error('Error al obtener el álbum:', error);
+    });
+}
+
+// Función para cerrar el formulario
+function closeEditForm() {
+  const popup = document.querySelector('.fixed.inset-0');
+  if (popup) {
+    popup.remove();
+  }
+}
+
+// Función para actualizar el álbum
+async function updateAlbum(albumId, form) {
+  const title = form.querySelector("#editTitle").value;
+  const description = form.querySelector("#editDescription").value;
+  const year = parseInt(form.querySelector("#editYear").value);
+  const cover = form.querySelector("#editCover").value;
+
+  try {
+    const response = await fetch(`/album/${albumId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        titulo: title,
+        descripcion: description,
+        añoLanzamiento: year,
+        portada: cover
+      })
+    });
+
+    if (response.ok) {
+      getAlbums(); // Actualizar la lista de álbumes
+      alert('Álbum actualizado correctamente');
+    } else {
+      console.error('Error al actualizar el álbum:', response.statusText);
+      alert('Error al actualizar el álbum');
+    }
+  } catch (error) {
+    console.error('Error al actualizar el álbum:', error);
+    alert('Error al actualizar el álbum');
+  }
+}
+
+
+//SE ACTIVA CUANDO EL USUARIO ENVIA LA INFO DEL NUEVO ALBUM
+window.addEventListener("DOMContentLoaded", () => {
+  // Selecciona el formulario aquí, DENTRO del evento DOMContentLoaded
+  const newAlbumForm = document.getElementById("newAlbumForm");
+
+  newAlbumForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const albumData = {
+      titulo: document.getElementById("titulo").value,
+      descripcion: document.getElementById("descripcion").value,
+      añoLanzamiento: parseInt(document.getElementById("añoLanzamiento").value),
+      portada: document.getElementById("portada").value,
+      canciones: [], // Inicializar el array de canciones
+    };
+    await addAlbum(albumData);
+  });
+});
+
+
+
+//---------------------------- FORM , DELETE , ADD CANCIONES
+
+// AGREGAR CANCION AL ALBUM
+const addSongToAlbum = async (albumId, songData) => {
+  try {
+    const response = await fetch(`/album/${albumId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ canciones: songData }),
+    });
+    if (response.ok) {
+      getAlbums();
+    } else {
+      const error = await response.json();
+      alert("Error al agregar canción:", error.message);
+    }
+  } catch (error) {
+    console.error("Error adding song:", error);
+  }
+};
+
 // Función para eliminar una canción del álbum
-const deleteSongFromAlbum = async (albumId, songId) => {
+const deleteSongFromAlbum = async (albumId, songId, songIndex) => {
   try {
     // Actualizar el array de canciones en el servidor (puedes usar PATCH o DELETE)
     const response = await fetch(`/album/${albumId}/songs/${songId}`, {
@@ -247,34 +383,7 @@ function closeSongForm() {
   }
 }
 
-//SE ACTIVA CUANDO EL USUARIO ENVIA LA INFO DEL NUEVO ALBUM
-window.addEventListener("DOMContentLoaded", () => {
-  // Selecciona el formulario aquí, DENTRO del evento DOMContentLoaded
-  const newAlbumForm = document.getElementById("newAlbumForm");
 
-  newAlbumForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const albumData = {
-      titulo: document.getElementById("titulo").value,
-      descripcion: document.getElementById("descripcion").value,
-      añoLanzamiento: parseInt(document.getElementById("añoLanzamiento").value),
-      portada: document.getElementById("portada").value,
-      canciones: [], // Inicializar el array de canciones
-    };
-    await addAlbum(albumData);
-  });
-});
-
-// Llamar a la función para mostrar los álbums después de que el DOM esté cargado.
-window.addEventListener("DOMContentLoaded", getAlbums);
-
-// Función para cerrar el formulario de agregar canción
-function closeSongForm() {
-  const songForm = document.querySelector(".fixed.inset-0");
-  if (songForm) {
-    songForm.remove();
-  }
-}
 
 // Llamar a la función para mostrar los álbums después de que el DOM esté cargado.
 window.addEventListener("DOMContentLoaded", getAlbums);
