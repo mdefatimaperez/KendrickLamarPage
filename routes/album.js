@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
     const albums = await Album.find();
     res.json(albums);
   } catch (error) {
+    console.log("ERRRORACAAAA")
     res.status(500).json({ message: error.message });
   }
 });
@@ -21,14 +22,16 @@ router.get('/:id', async (req, res) => {
   try {
     const album = await Album.findById(albumId);
     if (!album) {
+      console.log("ERROR NUEVO")
+
       return res.status(404).json({ message: 'Album not found' });
     }
     res.json(album);
   } catch (error) {
+
     res.status(500).json({ message: error.message });
   }
 });
-
 
 // Agregar un album
 router.post('/', async (req, res) => {
@@ -63,6 +66,8 @@ router.get('/:id/songs', async (req, res) => {
   try {
     const album = await Album.findById(albumId);
     if (!album) {
+      console.log("ERRORacaoooo")
+
       return res.status(404).json({ message: 'Album not found' });
     }
     res.json(album.canciones);
@@ -84,7 +89,6 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
 
 // Eliminar una canción de un álbum
 router.delete('/:albumId/songs/:songId', async (req, res) => {
@@ -117,7 +121,6 @@ router.delete('/:albumId/songs/:songId', async (req, res) => {
     return res.status(500).json({ message: 'Error deleting song' });
   }
 });
-
 
 // Actualizar un álbum
 router.put('/:id', async (req, res) => {

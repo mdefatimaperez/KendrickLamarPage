@@ -17,9 +17,12 @@ const getSongsForAlbum = async (albumId) => {
 
 // OBTENER TODOS LOS ALBUMS
 const getAlbums = async () => {
+  console.log("getAlbums")
+
   try {
     const response = await fetch("/album");
     const albums = await response.json();
+    console.log(albums);
     displayAlbums(albums);
   } catch (error) {
     console.error("Error fetching albums:", error);
@@ -29,6 +32,8 @@ const getAlbums = async () => {
 // AGREGAR ALBUM
 const addAlbum = async (albumData) => {
   try {
+    console.log("addAlbum")
+
     const response = await fetch("/album", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -49,6 +54,8 @@ const addAlbum = async (albumData) => {
 
 // ELIMINAR ALBUM
 const deleteAlbum = async (albumId) => {
+  console.log("deleteAlbum")
+
   try {
     const response = await fetch(`/album/${albumId}`, {
       method: "DELETE",
@@ -89,7 +96,7 @@ const displayAlbums = (albums) => {
         <div class="flex justify-between p-2"> 
             <div class="flex gap-2">
                 <button data-album-id="${album._id}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="openSongForm(this)">Agregar Canción</button>
-                <button data-album-id="${album._id}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500" onclick="deleteAlbum('${album._id}')">Eliminar Álbum</button>
+                <button data-album-id="${album._id}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500">Eliminar Álbum</button>
                 <button data-album-id="${album._id}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500" onclick="openEditForm(this)"">Editar Álbum</button>
             </div>
             <div class="flex">
@@ -154,7 +161,7 @@ const displayAlbums = (albums) => {
             `¿Estás seguro de que quieres eliminar el álbum ${album.titulo}?`
           )
         ) {
-          deleteAlbum(album._id);
+         deleteAlbum(album._id);
         }
       });
 
@@ -172,6 +179,7 @@ const displayAlbums = (albums) => {
 
 function openEditForm(button) {
   const albumId = button.dataset.albumId;
+  console.log("openEditForm")
 
   // Obtener los datos del álbum
   fetch(`/album/${albumId}`)
@@ -244,6 +252,7 @@ async function updateAlbum(albumId, form) {
   const description = form.querySelector("#editDescription").value;
   const year = parseInt(form.querySelector("#editYear").value);
   const cover = form.querySelector("#editCover").value;
+  console.log("updateAlbum")
 
   try {
     const response = await fetch(`/album/${albumId}`, {
@@ -298,6 +307,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // AGREGAR CANCION AL ALBUM
 const addSongToAlbum = async (albumId, songData) => {
   try {
+    console.log("addSongTOaLBUM")
     const response = await fetch(`/album/${albumId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -317,6 +327,8 @@ const addSongToAlbum = async (albumId, songData) => {
 // Función para eliminar una canción del álbum
 const deleteSongFromAlbum = async (albumId, songId, songIndex) => {
   try {
+    console.log("deleteSongFromAlbum")
+
     // Actualizar el array de canciones en el servidor (puedes usar PATCH o DELETE)
     const response = await fetch(`/album/${albumId}/songs/${songId}`, {
       method: "DELETE", // O "PATCH" si necesitas actualizar el array
@@ -388,4 +400,4 @@ function closeSongForm() {
 // Llamar a la función para mostrar los álbums después de que el DOM esté cargado.
 window.addEventListener("DOMContentLoaded", getAlbums);
 
-displayAlbums();
+//displayAlbums();
