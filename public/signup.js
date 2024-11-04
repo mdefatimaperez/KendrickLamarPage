@@ -1,38 +1,3 @@
-//ESTE ARCHIVO CONTIENE FRONT
-
-/*
-const emailInput = document.getElementById('emailInput');
-const passwordInput = document.getElementById('passwordInput');
-const passwordError = document.getElementById('passwordError');
-
-function login() {
-    if (emailInput.value.length >5 || passwordInput.value.length >5) {
-     
-        
-     
-     
-        swal({
-            title: "UPS!",
-            text: "Completa los campos para continuar",
-            icon: "warning",
-            
-        });
-    } else {
-        console.log('Inicio de sesión exitoso!');
-    }
-}
-
-//error contraseña corta
-passwordInput.addEventListener('input', function () {
-    if (passwordInput.value.length < 6) {
-        passwordError.textContent = '*Tu respuesta es demasiado corta*';
-        passwordError.style.display = 'block';
-    } else {
-        passwordError.style.display = 'none';
-    }
-});
-**/
-
 //CREAR USUARIO 
 
 const signupForm = document.getElementById('signup-form');
@@ -43,7 +8,7 @@ signupForm.addEventListener('submit', async (event) => {
   const apellido = document.getElementById('apellido').value;
   const email = document.getElementById('email').value;
   const contraseña = document.getElementById('contraseña').value;
-
+ console.log(nombre)
   try {
     const response = await fetch('/signup', { 
       method: 'POST',
@@ -56,7 +21,7 @@ signupForm.addEventListener('submit', async (event) => {
     if (response.ok) {
       const data = await response.json();
       alert(data.message);
-      window.location.href = '/index.html';
+      window.location.href = '/login.html';
     } else {
       const error = await response.json();
       alert(error.message);

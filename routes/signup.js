@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     res.cookie("token",token) //quiero que almacenes en el front un objeto que el nombre de su propierdad sea token y su valor es el token generado
 
     // Enviar respuesta exitosa con el token
-    res.status(201).json({ message: 'Usuario registrado exitosamente.', token });
+    res.status(201).json({ message: 'Usuario registrado exitosamente,se te redigira al login', token });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error al registrar usuario.' });

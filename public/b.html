@@ -1,36 +1,6 @@
-<div>
-    <label for="portada" class="block font-medium mb-1">Portada:</label>
-    <input type="text" id="portada" name="portada" required
-      class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-<div>
-    <label for="portada" class="text-white dark:text-gray-200">Portada</label>
-    <input type="text" id="portada" name="portada" required
-      class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-yellow-500 dark:focus:border-yellow-500 focus:outline-none focus:ring">
-  </div>
-
-
 
 
   <!--ESTO ESTABA EN EL INDEX-->
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
 
   <h1 class="text-red-500">activa la funcion obtenerUserById</h1>
   <!--llamamos la info al front-->
@@ -91,128 +61,6 @@
   </div>
 
 
-    <!----------------------------------------ALBUMS-------------------------------------->
-    <br>
-    <h1 id="albums" class="text-[#94a3b8] mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-5xl mt-28">ALBUMS</h1>
-    <br>
-    <div class="flex justify-around items-center mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex-col md:flex-row">
-        <!------------------------------------------ALBUM 1------------------------->
-        <div class="max-h-full container bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl w-full md:max-w-xs md:w-auto mb-4 relative"
-            id="albumContainer1">
-            <img class="w-full cursor-pointer" src="img/ALBUM1.webp" alt="" id="albumImage1" />
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center py-2 text-yellow-300 hidden cursor-pointer"
-                id="hoverText1">CLICK AL ALBUM</div>
-            <div class="flex p-4 justify-between">
-                <div class="flex items-center space-x-2">
-                    <h2 class="text-gray-800 text-lg font-bold cursor-pointer">DAMN.</h2>
-                </div>
-                <div class="flex space-x-2">
-                    <div class="flex space-x-1 items-center">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-600 cursor-pointer"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                            </svg>
-                        </span>
-                        <span>50k</span>
-                    </div>
-                    <div class="flex space-x-1 items-center">
-                        <span class="favorite-icon"> <span>
-                                <svg id="svg" xmlns="http://www.w3.org/2000/svg"
-                                    class="h-7 w-7 text-red-500 hover:text-red-400 transition duration-100 cursor-pointer"
-                                    viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                        </span>
-                        <span>90k</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!------------------------------------------ALBUM 2------------------------->
-        <div class="max-w-xs container bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl w-full md:max-w-xs md:w-auto mb-4 relative"
-            id="albumContainer2">
-            <img class="w-full cursor-pointer" src="img/ALBUM2.webp" alt="" id="albumImage2" />
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center py-2 text-yellow-300 hidden cursor-pointer"
-                id="hoverText2">CLICK AL ALBUM</div>
-            <div class="flex p-4 justify-between">
-                <div class="flex items-center space-x-2">
-                    <h2 class="text-gray-800 font-bold cursor-pointer">Mr.Morale & The Big Steppers</h2>
-                </div>
-                <div class="flex space-x-2">
-                    <div class="flex space-x-1 items-center">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-600 cursor-pointer"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                            </svg>
-                        </span>
-                        <span>55k</span>
-                    </div>
-                    <div class="flex space-x-1 items-center">
-                        <span class="favorite-icon">
-                            <svg id="svg" xmlns="http://www.w3.org/2000/svg"
-                                class="h-7 w-7 text-red-500 hover:text-red-400 transition duration-100 cursor-pointer"
-                                viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                        <span>90k</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!------------------------------------------ALBUM 3------------------------->
-        <div class="max-w-xs container bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl w-full md:max-w-xs md:w-auto mb-4 relative"
-            id="albumContainer3">
-            <img class="w-full cursor-pointer" src="img/ALBUM3.webp" alt="" id="albumImage3" />
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center py-2 text-yellow-300 hidden cursor-pointer"
-                id="hoverText3">CLICK AL ALBUM</div>
-            <div class="flex p-4 justify-between">
-                <div class="flex items-center space-x-2">
-                    <h2 class="text-gray-800 text-lg font-bold cursor-pointer">Not Like Us</h2>
-                </div>
-                <div class="flex space-x-2">
-                    <div class="flex space-x-1 items-center">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-600 cursor-pointer"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                            </svg>
-                        </span>
-                        <span>82k</span>
-                    </div>
-                    <div class="flex space-x-1 items-center">
-                        <span class="favorite-icon">
-                            <svg id="svg" xmlns="http://www.w3.org/2000/svg"
-                                class="h-7 w-7 text-red-500 hover:text-red-400 transition duration-100 cursor-pointer"
-                                viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                        <span>99k</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BOTON AGREGAR ALBUM-->
-        <div class="flex flex-col">
-            <a href="agregarAlbum.html"
-                class="mt-4 px-5 py-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300">Agregar
-                Album</a>
-        </div>
-    </div>
 
 
 
@@ -221,59 +69,218 @@
 
 
 
+  // FUNCIONES PARA  ESTILO ALBUM
+  
+  function handleAlbumHover(albumContainerId) {
+    const albumContainer = document.getElementById(albumContainerId);
+    const albumImage = document.getElementById(
+      `albumImage${albumContainerId.slice(-1)}`
+    );
+    const hoverText = document.getElementById(
+      `hoverText${albumContainerId.slice(-1)}`
+    );
+  
+    albumContainer.addEventListener("mouseover", () => {
+      albumImage.style.filter = "blur(3px)";
+      hoverText.classList.toggle("hidden");
+      hoverText.classList.add("block");
+    });
+  
+    albumContainer.addEventListener("mouseout", () => {
+      albumImage.style.filter = "blur(0px)";
+      hoverText.classList.remove("block");
+      hoverText.classList.add("hidden");
+    });
+  
+    hoverText.addEventListener("click", () => {
+      // Mapeo de IDs de contenedores con URLs
+      const urls = {
+        albumContainer1: "album1.html",
+        albumContainer2: "album2.html",
+        albumContainer3: "album3.html",
+      };
+      window.location.href = urls[albumContainerId]; // Redirige a la URL correspondiente
+    });
+  }
+  
+  // Función para inicializar los eventos de los álbums después de que el DOM esté cargado
+  function initAlbumHoverEvents() {
+    const albumContainers = [
+      "albumContainer1",
+      "albumContainer2",
+      "albumContainer3",
+    ];
+  
+    for (const albumContainerId of albumContainers) {
+      handleAlbumHover(albumContainerId);
+    }
+  }
+  
+  // Llama a la función para inicializar los eventos de los álbums 
+  // después de que el DOM esté cargado.
+  window.addEventListener("DOMContentLoaded", initAlbumHoverEvents);
+  
+  //ME GUSTA ALBUM
+  
+  const favoriteIcons = document.querySelectorAll(".favorite-icon");
+  
+  favoriteIcons.forEach((favoriteIcon) => {
+    const favoriteSvg = favoriteIcon.querySelector("svg");
+  
+    favoriteIcon.addEventListener("click", () => {
+      favoriteSvg.classList.toggle("text-red-500");
+      favoriteSvg.classList.toggle("text-gray-400");
+    });
+  });
+  
+  //get
+  async function obtenerUserById() {
+    try {
+      var id = document.querySelector(".idClase").value;
+      var nombre = document.querySelector(".nombre");
+      var apellido = document.querySelector(".apellido");
+      var email = document.querySelector(".email");
+      var contraseña = document.querySelector(".contraseña");
+  
+      const response = await axios.get("http://localhost:3000/user/" + id); //se le agrega el enpoint :D
+      nombre.textContent = response.data.nombre;
+      apellido.textContent = response.data.apellido;
+      // email.textContent=response.data.email
+      // contraseña.textContent=response.data.contraseña
+      // variable               respuesta api
+  
+      //ejemplos con input
+      email.value = response.data.email;
+      contraseña.value = response.data.contraseña;
+  
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  document.querySelector(".getUser").addEventListener("click", obtenerUserById);
+  //                      clase asignada en button           funcion :D
+  */
+  
+  /*
+  //post
+  
+  async function crearUser() {
+    try {
+      var nombre = document.querySelector("input");
+  
+      const response = await axios.post("http://localhost:3000/user/", {
+        nombre: nombre.value, //valor de la variable que llega del front uwu
+        apellido: apellido.value,
+        email: email.value,
+        contraseña: contraseña.value,
+      }); //se le agrega el endpoint :D
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  //la funcion solo se ejecuta si el usuario hace click :D
+  document
+    .querySelector(".enviarUsuarioNuevo")
+    .addEventListener("click", crearUser);
+  
+  
+  //OBTENER USUARIO POR NOMBRE,solo el primero
+  
+  async function obtenerUserByName() {
+    try {
+      var nombreBuscado = document.querySelector(".nombreClase").value; // Obtener el nombre del input
+  
+      // Seleccionar los elementos SPAN
+      var nombre = document.querySelector(".nombre2");
+      var apellido = document.querySelector(".apellido2");
+      var email = document.querySelector(".email2");
+      var contraseña = document.querySelector(".contraseña2");
+  
+      // Se asume que el backend tiene una ruta para buscar por nombre
+      const response = await axios.get(`http://localhost:3000/user/nombre/${nombreBuscado}`); 
+  
+      // Verificar si el usuario fue encontrado
+      if (response.data.error) {
+        // Mostrar un mensaje de error al usuario
+        alert("Usuario no encontrado");
+        return; // Detiene la ejecución de la función
+      }
+  
+      // Actualizar el contenido de los elementos SPAN
+      nombre.textContent = response.data.nombre;
+      apellido.textContent = response.data.apellido;
+      email.textContent = response.data.email;
+      contraseña.textContent = response.data.contraseña;
+  
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  document.querySelector(".obtenerPorNombre").addEventListener("click", obtenerUserByName);
+  
+  const resultadosDiv = document.getElementById("resultadosAll");
+  
+  async function buscarUsuarios() {
+    const nombreBuscado = document.getElementById("nombreAll").value;
+    resultadosDiv.innerHTML = ""; // Limpiar resultados anteriores
+  
+    try {
+      const response = await fetch(
+        `http://localhost:3000/user/nombre/${nombreBuscado}`
+      );
+      const usuarios = await response.json();
+  
+      if (usuarios.length > 0) {
+        usuarios.forEach((usuario) => {
+          const usuarioDiv = document.createElement("div");
+          usuarioDiv.innerHTML = `
+            <h2>${usuario.nombre} ${usuario.apellido}</h2>
+            <p>Email: ${usuario.email}</p>
+            <p>Email: ${usuario.contraseña}</p>
+            <p>Email: ${usuario.apellido}</p>`;
+          resultadosDiv.appendChild(usuarioDiv);
+        });
+      } else {
+        resultadosDiv.innerHTML =
+          "<p>No se encontraron usuarios con ese nombre</p>";
+      }
+    } catch (error) {
+      console.error("Error al buscar usuarios:", error);
+      resultadosDiv.innerHTML = "<p>Error al buscar usuarios</p>";
+    }
+  }
+  
+  /* //CERRAR INICIAR SESION
+  const isLog = window.location.search.includes("user=true");
+  if(isLog){
+     userMenu.insertAdjacentHTML("beforeend",'<a href="index.html" id="usuarioOn" class="block px-4 py-2 text-sm text-blue-500 hover:text-yellow-300"role="menuitem" tabindex="-1" id="user-menu-item-2">Cerrar sesion</a>')
+  }else{
+    userMenu.insertAdjacentHTML("beforeend",'<a href="login.html" id="usuarioOn" class="block px-4 py-2 text-sm text-red-500 hover:text-yellow-300"role="menuitem" tabindex="-1" id="user-menu-item-2">Iniciar sesion</a>')
+  }*/
+  
+  
 
 
 
 
-
-
-
-
-    //EL QUE QUIERO 
-    <div class="flex p-6 border-b">
-        <img class='w-24 h-24 object-cover' src="${album.portada}" alt="prueba">
-
-        <div class="flex flex-col px-2 w-full">
-            <span class="text-3xl text-white uppercase font-medium ">
-                <h3 class="mb-2">${album.titulo}</h3>
-            </span>
-            <span class="text-2xl text-yellow-500 capitalize font-semibold pt-1">
-                <p class="mb-2">Descripción: ${album.descripcion}</p>
-            </span>
-            <span class="text-base text-gray-500 uppercase font-medium ">
-                <p class="mb-2">Año de Lanzamiento: ${album.añoLanzamiento}</p>  
-            </span>
-            <div class="flex justify-end">
-                <img class="w-6 cursor-pointer" src="img/star.png" />
-                <img class="w-6 cursor-pointer" src="img/star.png" />
-                <img class="w-6 cursor-pointer" src="img/star.png" />
-                <img class="w-6 cursor-pointer" src="img/star.png" />
-                <img class="w-6 cursor-pointer" src="img/star.png" />
-            </div>
-            <div class="flex gap-2">
-                <button data-album-id="${album._id}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="openSongForm(this)">Agregar Canción</button>
-                <button data-album-id="${album._id}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500">Eliminar Álbum</button>
-              </div>
-        </div>
-        <h3>Canciones de este album</h3>
-        <ul class="song-list" data-album-id="${album._id}" class="list-disc pl-5">
-        </ul>
-    </div>
-     ///EL OTRO 
-    <div class="border text-white p-4 rounded-md shadow-md mb-4 flex flex-col">
-        <div class="flex justify-between items-center">
-          <div>
-            <h3 class="text-xl font-bold mb-2">${album.titulo}</h3>
-            <img src="${album.portada}" alt="prueba">
-            <p class="mb-2">Descripción: ${album.descripcion}</p>
-            <p class="mb-2">Año de Lanzamiento: ${album.añoLanzamiento}</p>  
-          </div>
-          <div class="flex gap-2">
-            <button data-album-id="${album._id}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="openSongForm(this)">Agregar Canción</button>
-            <button data-album-id="${album._id}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500">Eliminar Álbum</button>
-          </div>
-        </div>
-          <h3>Canciones de este album</h3>
-        <ul class="song-list" data-album-id="${album._id}" class="list-disc pl-5">
-        </ul>
+  <div class="container">
+    <h1>Login</h1>
+    <form id="login-form">
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
       </div>
+      <div>
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" required>
+      </div>
+      <h3>No tienes cuenta? <a href="signup.html">Crea una</a></h3>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+  </div>

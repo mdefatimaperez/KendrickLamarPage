@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingresar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert"></script>
-    <script defer src="signup.js"></script>
-    <link rel="stylesheet" href="style/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingresar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert"></script>
+  <script defer src="signup.js"></script>
 
 </head>
-<body>
-    <div class="container">
-        <h1>Signup</h1>
+
+  <div class="bg-black min-h-screen flex flex-col">
+    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+      <div class="bg-black px-6 py-8 rounded shadow-md text-white w-full">
+        <h1 class="mb-8 text-3xl text-center">Ingresa tus datos</h1>
         <form id="signup-form">
-          <div>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-          </div>
-          <div>
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
-          </div>
-          <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div>
-            <label for="contraseña">Contraseña:</label>
-            <input type="password" id="contraseña" name="contraseña" required>
-          </div>
-          <button type="submit">Registrarse</button>
+          <input id="nombre" required="nombre" type="text" class="block border border-grey-light w-full p-3 rounded mb-4 text-black"
+            name="nombre" placeholder="Nombre" />
+
+          <input id="apellido" type="text" class="block border border-grey-light w-full p-3 rounded mb-4 text-black"
+            name="apellido" placeholder="Apellido" />
+
+          <input id="email" type="email" class="block border border-grey-light w-full p-3 rounded mb-4 text-black" name="email"
+            placeholder="Email" />
+          <input id="contraseña" type="password" class="block border border-grey-light w-full p-3 rounded mb-4 text-black"
+            name="contraseña" placeholder="Contraseña" />
+
+          <button type="submit"
+            class="w-full text-center py-3 rounded border border-grey-light text-white focus:outline-none my-1">Registrarse</button>
         </form>
+        <div class="text-center text-sm text-grey-dark mt-4">
+          Al registrse , usted acepta nuestros
+          <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+            Terminos
+          </a> y
+          <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+            Politica de privacidad
+          </a>
+        </div>
       </div>
-      
+
+      <div class="text-white mt-6">
+        ¿Ya tienes una cuenta?
+        <a class="no-underline border border-blue text-blue" href="login.html">
+          Inicia Sesion
+        </a>.
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

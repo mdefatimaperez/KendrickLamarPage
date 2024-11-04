@@ -1,11 +1,9 @@
 const newAlbumForm = document.getElementById("newAlbumForm");
 const albumListItems = document.getElementById("albumListItems");
-
 let currentAlbumId = null; // Variable para almacenar el ID del álbum actual
 
 // Función para obtener las canciones de un álbum específico
 const getSongsForAlbum = async (albumId) => {
-  console.log(albumId)
   try {
     const response = await fetch(`/album/${albumId}/songs`);
     const songs = await response.json();
@@ -17,12 +15,10 @@ const getSongsForAlbum = async (albumId) => {
 
 // OBTENER TODOS LOS ALBUMS
 const getAlbums = async () => {
-  console.log("getAlbums")
 
   try {
     const response = await fetch("/album");
     const albums = await response.json();
-    console.log(albums);
     displayAlbums(albums);
   } catch (error) {
     console.error("Error fetching albums:", error);
@@ -32,7 +28,6 @@ const getAlbums = async () => {
 // AGREGAR ALBUM
 const addAlbum = async (albumData) => {
   try {
-    console.log("addAlbum")
 
     const response = await fetch("/album", {
       method: "POST",
@@ -54,7 +49,6 @@ const addAlbum = async (albumData) => {
 
 // ELIMINAR ALBUM
 const deleteAlbum = async (albumId) => {
-  console.log("deleteAlbum")
 
   try {
     const response = await fetch(`/album/${albumId}`, {
@@ -73,65 +67,72 @@ const deleteAlbum = async (albumId) => {
 };
 
 // MOSTRAR ALBUMS
-const displayAlbums = (albums) => {
-  albumListItems.innerHTML = "";
+
+const displayAlbums = async (albums) => {
+  const albumListItems = document.getElementById("albumListItems");
+  albumListItems.innerHTML = ""; // Limpia la lista
+
   if (albums) {
-    albums.forEach(async (album) => {
+    for (const album of albums) {
       const albumItem = document.createElement("li");
       albumItem.innerHTML = `
-       <div class="flex p-6 border-b">
-    <img class='w-24 h-24 object-cover' src="${album.portada}" alt="prueba">
-    <div class="flex flex-col px-2 w-full"> 
-        <span class="text-3xl text-white uppercase font-medium ">
-            <h3 class="mb-2">${album.titulo}</h3>
-        </span>
-        <span class="text-2xl text-yellow-500 capitalize font-semibold pt-1">
-            <p class="mb-2">Descripción: ${album.descripcion}</p>
-        </span>
-        <span class="text-base text-gray-500 uppercase font-medium ">
-            <p class="mb-2">Año de Lanzamiento: ${album.añoLanzamiento}</p>  
-        </span>
-        <ul class="song-list" data-album-id="${album._id}" class="list-disc pl-5">
-        </ul>
-        <div class="flex justify-between p-2"> 
-            <div class="flex gap-2">
+        <div class="flex p-6 border-b">
+          <img class='w-24 h-24 object-cover' src="${album.portada}" alt="prueba">
+          <div class="flex flex-col px-2 w-full"> 
+            <span class="text-3xl text-white uppercase font-medium ">
+              <h3 class="mb-2">${album.titulo}</h3>
+            </span>
+            <span class="text-2xl text-yellow-500 capitalize font-semibold pt-1">
+              <p class="mb-2">Descripción: ${album.descripcion}</p>
+            </span>
+            <span class="text-base text-gray-500 uppercase font-medium ">
+              <p class="mb-2">Año de Lanzamiento: ${album.añoLanzamiento}</p>  
+            </span>
+            <ul class="song-list" data-album-id="${album._id}" class="list-disc pl-5">
+            </ul>
+            <div class="flex justify-between p-2"> 
+              <div class="flex gap-2">
                 <button data-album-id="${album._id}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="openSongForm(this)">Agregar Canción</button>
-                <button data-album-id="${album._id}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500">Eliminar Álbum</button>
-                <button data-album-id="${album._id}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500" onclick="openEditForm(this)"">Editar Álbum</button>
-            </div>
-            <div class="flex">
+                <button data-album-id="${album._id}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500"">Eliminar Álbum</button>
+                <button data-album-id="${album._id}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500" onclick="openEditForm(this)">Editar Álbum</button>
+              </div>
+              <div class="flex">
                 <img class="w-6 h-6 cursor-pointer" src="img/star.png" /> 
-               <img class="w-6 h-6 cursor-pointer" src="img/star.png" />
-               <img class="w-6 h-6 cursor-pointer" src="img/star.png" />
-               <img class="w-6 h-6 cursor-pointer" src="img/star.png" />
-               <img class="w-6 h-6 cursor-pointer" src="img/star.png" />
+                <img class="w-6 h-6 cursor-pointer" src="img/star.png" />
+                <img class="w-6 h-6 cursor-pointer" src="img/star.png" />
+                <img class="w-6 h-6 cursor-pointer" src="img/star.png" />
+                <img class="w-6 h-6 cursor-pointer" src="img/star.png" />
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-    `;
-
+      `;
       albumListItems.appendChild(albumItem);
+
+      const deleteAlbumButton = albumItem.querySelector("button.bg-red-500");
+      deleteAlbumButton.addEventListener("click", () => {
+        const albumId = deleteAlbumButton.dataset.albumId;
+        if (confirm('¿Estás seguro de que quieres eliminar el álbum?')) {
+          deleteAlbum(albumId); // Llama a la función para eliminar el álbum
+        }
+      });
 
       // Obtener y mostrar las canciones del álbum actual
       const songs = await getSongsForAlbum(album._id);
       if (songs) {
         const songList = albumItem.querySelector(".song-list");
         songs.forEach((cancion, index) => {
-          // Añadimos el índice de la canción
           const songItem = document.createElement("li");
           songItem.innerHTML = `
-           <h3>Canciones de este album</h3>
-         <div class="">
-          <div class=" bg-black flex border-black"> 
-          <span>${cancion.titulo} - ${cancion.duracion} segundos</span>
-            <span class="ml-2" data-song-id="${cancion._id}" data-album-id="${album._id}" data-song-index="${index}">
-              <svg class="w-4 h-4 text-red-500 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-              </svg>
-          </span>
-          <div>
-          </div>
+            <h3>Canciones de este album</h3>
+            <div class="bg-black flex border-black"> 
+              <span>${cancion.titulo} - ${cancion.duracion} segundos</span>
+              <span class="ml-2" data-song-id="${cancion._id}" data-album-id="${album._id}" data-song-index="${index}">
+                <svg class="w-4 h-4 text-red-500 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </span>
+            </div>
           `;
           songList.appendChild(songItem);
 
@@ -144,42 +145,26 @@ const displayAlbums = (albums) => {
 
             if (
               confirm(
-                `¿Estás seguro de que quieres eliminar la canción ${cancion.titulo}?`
+                `¿Estás seguro de que quieres eliminar el álbum ${cancion.titulo}?`
               )
             ) {
-              deleteSongFromAlbum(albumId, songId, songIndex); // Llama a la función para eliminar la canción
+              deleteSongFromAlbum(albumId, songId, songIndex);
             }
           });
         });
       }
-
-      // Agregar eventos a los botones "Eliminar Álbum"
-      const deleteAlbumButton = albumItem.querySelector("button.bg-red-500");
-      deleteAlbumButton.addEventListener("click", () => {
-        if (
-          confirm(
-            `¿Estás seguro de que quieres eliminar el álbum ${album.titulo}?`
-          )
-        ) {
-         deleteAlbum(album._id);
-        }
-      });
-
-      // Agregar evento al botón "Modificar Álbum"
-      const editAlbumButton = albumItem.querySelector("button.bg-green-500");
-      editAlbumButton.addEventListener("click", () => {
-        openEditAlbumForm(editAlbumButton);
-      });
-    });
+    }
   }
 };
 
 
+
+
+         
 //EDIT ALBUM
 
 function openEditForm(button) {
   const albumId = button.dataset.albumId;
-  console.log("openEditForm")
 
   // Obtener los datos del álbum
   fetch(`/album/${albumId}`)
@@ -252,7 +237,6 @@ async function updateAlbum(albumId, form) {
   const description = form.querySelector("#editDescription").value;
   const year = parseInt(form.querySelector("#editYear").value);
   const cover = form.querySelector("#editCover").value;
-  console.log("updateAlbum")
 
   try {
     const response = await fetch(`/album/${albumId}`, {
@@ -281,12 +265,10 @@ async function updateAlbum(albumId, form) {
   }
 }
 
-
 //SE ACTIVA CUANDO EL USUARIO ENVIA LA INFO DEL NUEVO ALBUM
-window.addEventListener("DOMContentLoaded", () => {
-  // Selecciona el formulario aquí, DENTRO del evento DOMContentLoaded
-  const newAlbumForm = document.getElementById("newAlbumForm");
 
+window.addEventListener("DOMContentLoaded", () => {
+  const newAlbumForm = document.getElementById("newAlbumForm");
   newAlbumForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const albumData = {
@@ -300,14 +282,11 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
 //---------------------------- FORM , DELETE , ADD CANCIONES
 
 // AGREGAR CANCION AL ALBUM
 const addSongToAlbum = async (albumId, songData) => {
   try {
-    console.log("addSongTOaLBUM")
     const response = await fetch(`/album/${albumId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -327,7 +306,6 @@ const addSongToAlbum = async (albumId, songData) => {
 // Función para eliminar una canción del álbum
 const deleteSongFromAlbum = async (albumId, songId, songIndex) => {
   try {
-    console.log("deleteSongFromAlbum")
 
     // Actualizar el array de canciones en el servidor (puedes usar PATCH o DELETE)
     const response = await fetch(`/album/${albumId}/songs/${songId}`, {
@@ -395,9 +373,7 @@ function closeSongForm() {
   }
 }
 
-
-
 // Llamar a la función para mostrar los álbums después de que el DOM esté cargado.
 window.addEventListener("DOMContentLoaded", getAlbums);
 
-//displayAlbums();
+displayAlbums();

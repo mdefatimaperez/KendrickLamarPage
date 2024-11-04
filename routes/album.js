@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
     const albums = await Album.find();
     res.json(albums);
   } catch (error) {
-    console.log("ERRRORACAAAA")
     res.status(500).json({ message: error.message });
   }
 });
@@ -18,11 +17,9 @@ router.get('/', async (req, res) => {
 //obtener album por id
 router.get('/:id', async (req, res) => {
   const albumId = req.params.id;
-  console.log("ES ESTE:", albumId)
   try {
     const album = await Album.findById(albumId);
     if (!album) {
-      console.log("ERROR NUEVO")
 
       return res.status(404).json({ message: 'Album not found' });
     }
@@ -62,11 +59,9 @@ router.patch('/:id', async (req, res) => {
 // Obtener las canciones de un álbum específico
 router.get('/:id/songs', async (req, res) => {
   const albumId = req.params.id;
-  console.log("con id songs:", albumId)
   try {
     const album = await Album.findById(albumId);
     if (!album) {
-      console.log("ERRORacaoooo")
 
       return res.status(404).json({ message: 'Album not found' });
     }
@@ -97,14 +92,12 @@ router.delete('/:albumId/songs/:songId', async (req, res) => {
     const songId = req.params.songId;
 
     const album = await Album.findById(albumId);
-    console.log(album)
     if (!album) {
       return res.status(404).json({ message: 'Album not found' });
     }
 
     // Encuentra la canción en el array de canciones del álbum
     const songIndex = album.canciones.findIndex(song => song._id.toString() === songId);
-   console.log("song iNDEX:",songIndex)
     if (songIndex === -1) {
       return res.status(404).json({ message: 'Song not found' });
     }
@@ -117,7 +110,6 @@ router.delete('/:albumId/songs/:songId', async (req, res) => {
     return res.status(200).json({ message: 'Song deleted successfully' });
 
   } catch (error) {
-    console.log("error a mano:",error)
     return res.status(500).json({ message: 'Error deleting song' });
   }
 });
@@ -135,6 +127,5 @@ router.put('/:id', async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
-
 
 module.exports = router;
