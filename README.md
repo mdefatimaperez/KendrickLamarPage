@@ -21,7 +21,7 @@ Gestión de Álbumes: Los usuarios pueden agregar, modificar y eliminar álbumes
 
 Gestión de Canciones: Cada álbum permite agregar y modificar canciones, lo que permite una gestión completa de su discografía.
 
-Sistema de Login: Los usuarios pueden registrarse e iniciar sesión utilizando JWT para una autenticación segura.
+Sistema de Login: Los usuarios pueden registrarse e iniciar sesión utilizando JWT para una autenticación segura.Sientete libre de generar un usuario para tu navegacion
 
 Interfaz Amigable: Diseño atractivo y fácil de usar gracias a Tailwind CSS.
 
